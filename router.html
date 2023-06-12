@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Router</title>
+  </head>
+
+  <body>
+    <div>
+      <ul>
+        <li><a href="#/home">Home</a></li>
+        <li><a href="#/about">about</a></li>
+      </ul>
+      <div id="routeView"></div>
+    </div>
+    <script>
+      class Router {
+        constructor() {
+          this.routeView = null;
+          this.routes = {};
+        }
+        route(path, callback) {
+          this.routes[path] = () => this.routeView.innerHTML = callback() || "";
+        }
+
+        init(root, rootView) {
+          this.routeView = rootView;
+          this.refresh();
+          // root.addEventListener("click", e => {
+          //   if (e.target.nodeName === "A") {
+          //     e.preventDefault();
+          //     history.pushState(null, "", e.target.getAttribute("href"));
+          //     this.refresh();
+          //   }
+          // });
+
+          // addEventListener("popstate", () => this.refresh(), false);
+          addEventListener("hashchange", () => this.refresh(), false);
+        }
+
+        refresh() {
+          // const path = location.pathname;
+          // if (this.routes[path]) {
+          //   this.routes[path]();
+          // } else {
+          //   this.routeView.innerHTML = ``;
+          // }
+          const hash = location.hash;
+          console.log(hash);
+          if (this.routes[hash]) {
+            this.routes[hash]();
+
+          } else {
+            this.routeView.innerHTML = ``;
+          }
+        }
+      }
+      // BrowserRouter组件,在内部创建一个全局的history对象,可以监听整个路由的变化,
+      //并将history作为props传递给react-router的Router组件
+      const router = new Router();
+      router.route("#/home", () => {
+        return `<div>I am home.</div>`;
+      });
+      router.route("#/about", () => {
+        return `<div>I am about.</div>`;
+      });
+
+      router.init(document, document.querySelector("#routeView"));
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,1 @@
+written in `Van`[vanjs](https://github.com/vanjs-org/van)
