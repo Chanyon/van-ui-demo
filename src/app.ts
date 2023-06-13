@@ -3,7 +3,7 @@ import { Router } from "../lib/router/route";
 import { Home } from "./views/home/index";
 import { Profile } from "./views/profile/index";
 import { Contact } from "./views/contact/index";
-import "./app.css";
+import "./app.scss";
 
 const { div, footer, nav, main, ul, li, a } = van.tags;
 const Nav = () => {

@@ -1,5 +1,5 @@
 import van from "../../../lib/van-0.12.2";
-import "./index.css";
+import "./index.scss";
 const { div } = van.tags;
 
 const Home = () => {

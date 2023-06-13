@@ -5,4 +5,9 @@ export default defineConfig({
   plugins: [
     // UnoCSS(), don't use
   ],
+  css: {
+    preprocessorOptions: {
+      
+    },
+  }
 })
