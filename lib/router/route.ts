@@ -1,10 +1,12 @@
 class Router {
+  //@ts-ignore
   routeView: HTMLElement;
-  routes: object;
+  routes: {};
   constructor() {
     this.routes = {};
   }
   route(path: string, callback: Function) {
+    //@ts-ignore
     this.routes[path] = () => this.routeView.innerHTML = callback() || "";
   }
 
@@ -25,7 +27,9 @@ class Router {
 
   refresh() {
     const path = location.pathname;
+      //@ts-ignore
     if (this.routes[path]) {
+        //@ts-ignore
       this.routes[path]();
     } else {
       this.routeView.innerHTML = ``;

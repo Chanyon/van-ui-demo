@@ -44,14 +44,36 @@ ul li {
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  padding: 20px;
+  margin-top: 40px;
+  padding: 15px 20px;
   display: flex;
-  justify-content: center;
-  background-color: bisque;
+  justify-content: space-between;
+  align-items: center;
+  
+  .left {
+    display: flex;
+    align-items: center;
+    .logo {
+      width: 36px;
+      height: 36px;
+    }
+    span {
+      font-size: 14px;
+    }
+  }
+  .right {
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    a {
+      margin: 0 5px;
+      padding: 4px;
+    }
+    a:hover {
+      color: rgb(230, 140, 30);
+      text-decoration: underline;
+    }
+  }
 }
 
 .main {
